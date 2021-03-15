@@ -1,4 +1,5 @@
 let canvas = document.getElementById("snake");
+let img = document.getElementById("imagen");
 let context = canvas.getContext("2d");
 let box = 32;
 let snake = [];
@@ -12,18 +13,28 @@ snake[0] = {x:8 * box, y: 8 * box};
 
 
 function criarBG() {
-    context.fillStyle = "lightblue";
+    context.fillStyle = 'rgba(80, 138, 231, .80)';
     context.fillRect(0, 0, 16 * box, 16 * box);
+    context.font = "85px Arial"
+    context.fillStyle = "rgba(256,256,256,.5)";
+    context.textAlign = "center"
+    context.fillText("Snake", 256, 256);
+    context.drawImage(img, 0, 0, 512, 512);
+
 }
+   
 function newFood() {
-    context.fillStyle = "blue";
+    context.fillStyle = "#115090";
     context.fillRect(food.x, food.y, box, box);
+    context.strokeRect(food.x, food.y, box, box);
+
 }
 function newsnake() {
     for(i = 0; i < snake.length; i++){
-        context.fillStyle = "blue";
+        context.fillStyle = "#111187";
+        context.strokeStyle = 'rgb(146, 179, 231)';
         context.fillRect(snake[i].x, snake[i].y, box, box);
-        // context.stroke(snake[i].x, snake[i].y, box, box);
+        context.strokeRect(snake[i].x, snake[i].y, box, box);
     }
 }
 document.addEventListener('keydown', update);
@@ -68,4 +79,4 @@ function playgame(){
     snake.unshift(newHead);
 }
 
-let game = setInterval(playgame, 300);
+let game = setInterval(playgame, 100);

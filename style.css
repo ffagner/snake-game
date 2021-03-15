@@ -11,6 +11,13 @@ body {
 .game {
     font-family: sans-serif;
     font-size: 40px;
-    color: rgba(43, 43, 214, 0.794);
+    color: rgb(80, 138, 231);
     font-weight: 600;
+}
+canvas {
+    border: solid 2px blue;
+    border-radius: 10px;
+}
+#snake {
+    border: solid 2px rgb(146, 179, 231);
 }
